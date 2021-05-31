@@ -1,5 +1,5 @@
 /*
-	Emulación procesador Zilog z80A
+	Emulación procesador Zilog z80
 	
 	Interno:
 		// Parte alta
