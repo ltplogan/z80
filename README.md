@@ -1,5 +1,7 @@
 # Zilog z80
-	
+
+![Diagrama Procesador](procesador.jpeg)
+
 ## Interno:
 - Parte alta
 - Parte baja
