@@ -26,17 +26,25 @@
 - R(8 bits) - Lo utiliza el hardware, lo utiliza para el refresco de la memoria RAM. Ese registro se van incrementando con unos ciclos de reloj y se va refrescando la memoria RAM para que no se pierda su contenido
 
 ## Externo:
+- BUS DE DIRECCIONES
+- BUS DE DATOS
+- BUS DE CONTROL
+
 - Bus de direcciones 16 bits (65336) o 65535 (64k)
-- Spectrum 48k -> 64k
+- Bus de datos 8 bit
+
+#### Spectrum 48k -> 64k
 ``` sh
 ROM - 16 Kbytes
 RAM - 48 Kbytes
 ---------------
 TOTAL - 64 Kbytes
 ```
+El ciclo primero **FETCH** (busqueda de instrucción) en el que es ese ciclo se copia el contador de programa en el bus y se activa la línea READ. La memoria (ROM) coge lo que hay en esa posición de memoria y lo coloca en el **bus de direcciones**, este al leerlo lo coloca en la variable **opcode** se descodifica para saber qué instrucción es y se ejecuta.
 
-- Bus de datos 8 bit
+#### Lectura Descodificación Ejecución
+1. **FETCH.** Poner el PC en el bus de direcciones y decirle a la memoria que lea.
+2. **La memoria.** Cuando lee se va a esa posición de memoria y lo coloca en el bus de datos.
+3. **Procesador.** Lee el bus de datos que tienen en común y lo coloca en un registro de instrucciones (opcode), descodifica para saber qué instrucción es a nivel de bit y la ejecuta y vuelve a actualizar el contador de programa con la siguiente instrucción. 
 
-- BUS DE DIRECCIONES
-- BUS DE DATOS
-- BUS DE CONTROL
+
